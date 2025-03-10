@@ -1,0 +1,19 @@
+{
+  "name": "cosmicforge-chaincode",
+  "version": "1.0.0",
+  "description": "Chaincode for CosmicForge Telemedicine Platform",
+  "scripts": {
+    "test": "cd patient-records && npm test"
+  },
+  "keywords": [
+    "fabric",
+    "chaincode",
+    "healthcare",
+    "blockchain",
+    "hyperledger",
+    "telemedicine",
+    "cosmicforge"
+  ],
+  "author": "CosmicForge Team",
+  "license": "Apache-2.0"
+}

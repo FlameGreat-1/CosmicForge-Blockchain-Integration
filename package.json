@@ -1,0 +1,54 @@
+{
+  "name": "cosmicforge-blockchain",
+  "version": "1.0.0",
+  "description": "Blockchain integration for CosmicForge telemedicine platform using Hyperledger Fabric",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd api && npm start",
+    "dev": "cd api && npm run dev",
+    "test": "npm run test:api && npm run test:chaincode",
+    "test:api": "cd api && npm test",
+    "test:chaincode": "cd chaincode/patient-records && npm test",
+    "lint": "cd api && npm run lint",
+    "deploy:network": "./scripts/deploy-network.sh",
+    "deploy:chaincode": "./scripts/deploy-chaincode.sh",
+    "enroll:admin": "node ./scripts/enroll-admin.js",
+    "register:user": "node ./scripts/register-user.js",
+    "backup:wallet": "./scripts/backup-wallet.sh",
+    "setup": "npm run deploy:network && npm run deploy:chaincode && npm run enroll:admin",
+    "postinstall": "cd api && npm install && cd ../chaincode/patient-records && npm install",
+    "docker:build": "docker build -t cosmicforge/blockchain-api:latest ./api",
+    "docker:push": "docker push cosmicforge/blockchain-api:latest",
+    "monitor:start": "docker-compose -f ./monitoring/docker-compose.yaml up -d",
+    "monitor:stop": "docker-compose -f ./monitoring/docker-compose.yaml down"
+  },
+  "keywords": [
+    "blockchain",
+    "healthcare",
+    "hyperledger",
+    "fabric",
+    "telemedicine",
+    "medical-records",
+    "cosmicforge",
+    "patient-data",
+    "hipaa-compliant"
+  ],
+  "author": "CosmicForge Team",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cosmicforge/blockchain-integration.git"
+  },
+  "dependencies": {
+    "fabric-ca-client": "^2.2.16",
+    "fabric-network": "^2.2.16"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "jest": "^29.5.0"
+  }
+}
